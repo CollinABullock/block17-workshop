@@ -21,4 +21,10 @@
 // Print all the seasonal drinks with the words "with imported beans" after the item name.
 // For example: "affogato with imported beans"
 
-const coffeeData = require("./coffee_data_starter")
+const coffeeData = require("./coffee_data_starter");
+
+const printName = (item) => {
+  return item.name;
+};
+
+console.log(coffeeData.map(printName));
