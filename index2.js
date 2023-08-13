@@ -48,3 +48,19 @@ function drinkEven(item) {
 
 const drinkEvenArray = coffeeData.filter(drinkEven);
 console.table(drinkEvenArray);
+
+// print the total of all the prices
+
+function drinkPrices(item) {
+  return item.price;
+}
+
+const drinkPricesArray = coffeeData.map(drinkPrices);
+console.log(drinkPricesArray);
+
+function drinkPricesFunction(accumulator, currentValue) {
+  return accumulator + currentValue;
+}
+
+const drinkPricesTotal = drinkPricesArray.reduce(drinkPricesFunction);
+console.log(drinkPricesTotal);
