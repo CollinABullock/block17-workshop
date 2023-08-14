@@ -82,7 +82,9 @@ console.log(printSeasonalVar);
 // For example: "affogato with imported beans"
 
 const printBeans = (item) => {
+  if (item.seasonal === true) {
   return item.name + (" with imported beans");
+  }
 }
 
 const printBeansVar = coffeeData.map(printBeans);

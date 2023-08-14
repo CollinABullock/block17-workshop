@@ -51,16 +51,42 @@ console.table(drinkEvenArray);
 
 // print the total of all the prices
 
-function drinkPrices(item) {
+function drinkPrice(item) {
   return item.price;
 }
 
-const drinkPricesArray = coffeeData.map(drinkPrices);
-console.log(drinkPricesArray);
+const drinkPriceArray = coffeeData.map(drinkPrice);
+console.log(drinkPriceArray);
 
-function drinkPricesFunction(accumulator, currentValue) {
+function drinkPriceFunction(accumulator, currentValue) {
   return accumulator + currentValue;
 }
 
-const drinkPricesTotal = drinkPricesArray.reduce(drinkPricesFunction);
-console.log(drinkPricesTotal);
+const drinkPriceTotal = drinkPriceArray.reduce(drinkPriceFunction);
+console.log(drinkPriceTotal);
+
+const coolNumbers = [420, 911, 69, 84, 855, 80085];
+coolNumbers.sort((b, a) => (b - a));
+console.log(coolNumbers);
+
+// Print an array of all the drinks that are seasonal
+
+function drinksSeasonal(item) {
+  if (item.seasonal === true) {
+    return item.name
+  }
+}
+
+const drinksSeasonalArray = coffeeData.filter(drinksSeasonal);
+console.log(drinksSeasonalArray);
+
+// // 7. Print all the seasonal drinks with the words "with imported beans" after the item name. For example: "affogato with imported beans".
+
+function printBeans(item) {
+  if (item.seasonal === true) {
+    return item.name + " with imported beans"
+  }
+}
+
+const printBeansArray = coffeeData.map(printBeans);
+console.log(printBeansArray);
