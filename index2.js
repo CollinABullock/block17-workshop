@@ -22,7 +22,7 @@ const coffeeData = require("./coffee_data_starter.js");
 
 // Print an array of all the drinks
 function drinkMenu(item) {
-  return item.name;
+  return [item.name];
 } 
 
 const drinkMenuArray = coffeeData.map(drinkMenu);
@@ -31,22 +31,22 @@ console.log(drinkMenuArray);
 // Print an array of all the drinks under $5
 function drinkMenu5(item) {
   if (item.price <= 5) {
-    return item.name
+    return [item.name] + " is under $5"
   }
 }
 
-const drinkMenu5Array = coffeeData.filter(drinkMenu5);
+const drinkMenu5Array = coffeeData.map(drinkMenu5);
 console.table(drinkMenu5Array);
 
 // print an array of evenly priced drinks
 
 function drinkEven(item) {
   if (item.price % 2 === 0) {
-    return item.name;
+    return [item.name] + " is evenly priced";
   }
 }
 
-const drinkEvenArray = coffeeData.filter(drinkEven);
+const drinkEvenArray = coffeeData.map(drinkEven);
 console.table(drinkEvenArray);
 
 // print the total of all the prices
@@ -73,12 +73,12 @@ console.log(coolNumbers);
 
 function drinksSeasonal(item) {
   if (item.seasonal === true) {
-    return item.name
+    return [item.name];
   }
 }
 
-const drinksSeasonalArray = coffeeData.filter(drinksSeasonal);
-console.log(drinksSeasonalArray);
+const drinksSeasonalArray = coffeeData.map(drinksSeasonal);
+console.log("did this work", drinksSeasonalArray);
 
 // // 7. Print all the seasonal drinks with the words "with imported beans" after the item name. For example: "affogato with imported beans".
 
@@ -90,3 +90,11 @@ function printBeans(item) {
 
 const printBeansArray = coffeeData.map(printBeans);
 console.log(printBeansArray);
+
+const coffeeDataName = (item) => {
+  if (item.seasonal === true) {
+    return item.name;
+  }
+}
+
+console.log(coffeeDataName(coffeeData));
